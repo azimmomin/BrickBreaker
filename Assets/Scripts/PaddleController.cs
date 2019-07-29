@@ -9,9 +9,9 @@ public class PaddleController : MonoBehaviour
         Vector3 paddleBounds = GetComponent<CapsuleCollider2D>().bounds.size;
         paddleX = Mathf.Clamp(paddleX, paddleBounds.x / 2.0F, cameraHorizontalSize - (paddleBounds.x / 2.0F));
 
-        Vector3 currentPaddleTransform = gameObject.transform.position;
+        Vector3 currentPaddleTransform = transform.position;
         currentPaddleTransform.x = paddleX;
 
-        gameObject.transform.position = currentPaddleTransform;
+        transform.position = currentPaddleTransform;
     }
 }

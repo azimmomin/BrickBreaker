@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameOverDetector : MonoBehaviour
 {
     [SerializeField]
-    private SceneLoader sceneLoader;
+    private SceneLoader sceneLoader = null;
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
