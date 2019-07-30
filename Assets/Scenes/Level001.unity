@@ -1120,4 +1120,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paddleController: {fileID: 298883060}
   ballRigidBody: {fileID: 1837129265}
-  launchSpeed: 10
+  ballVelocityOnLaunch: {x: 2, y: 15}
