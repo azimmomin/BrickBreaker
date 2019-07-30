@@ -282,7 +282,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 426b785b6d5b4e844bb01209feeb169f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e37ec47943709b14eb8987a2872d13cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -301,14 +301,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298883056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 0.45, z: 0}
+  m_LocalPosition: {x: 8, y: 0.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &298883059
-CapsuleCollider2D:
+--- !u!114 &298883059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298883056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef59b7caf3049049a2b5321256314ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!60 &298883060
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -321,20 +333,24 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.7, y: 0.5}
-  m_Direction: 1
---- !u!114 &298883060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298883056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ef59b7caf3049049a2b5321256314ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 0.5}
+    newSize: {x: 6.93, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.5176153, y: 0.24722648}
+      - {x: -0.52022743, y: 0.24799663}
+      - {x: -0.99599314, y: 0.044469416}
+      - {x: -1, y: -0.25}
+      - {x: 1, y: -0.25}
+      - {x: 1, y: 0.039803714}
+      - {x: 0.8248434, y: 0.11566329}
 --- !u!1 &349498344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,7 +1079,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837129262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.03, y: 0.95, z: 0}
+  m_LocalPosition: {x: 8.03, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1103,9 +1119,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00024548173, y: 0}
   serializedVersion: 2
-  m_Radius: 0.21333334
+  m_Radius: 0.2000269
 --- !u!114 &1837129267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,6 +1134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1642cae236249fb8c1c134ac4f88e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paddleController: {fileID: 298883060}
+  paddleController: {fileID: 298883059}
   ballRigidBody: {fileID: 1837129265}
   ballVelocityOnLaunch: {x: 2, y: 15}
