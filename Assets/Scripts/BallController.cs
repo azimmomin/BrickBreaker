@@ -1,13 +1,17 @@
-﻿using UnityEngine;
+﻿using CustomExtensions;
+using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    [SerializeField] private AudioSource ballAudioSource = null;
+    [SerializeField] private AudioClip[] ballCollisionSoundEffects = null;
     [SerializeField] private PaddleController paddleController = null;
     [SerializeField] private Rigidbody2D ballRigidBody = null;
     [SerializeField] private Vector2 ballVelocityOnLaunch = Vector2.zero;
 
-    private Vector2 distanceBetweenBallAndPaddle;
+    private Vector2 distanceBetweenBallAndPaddle = Vector2.zero;
     private bool hasBallBeenLaunched = false;
+
     private void Start()
     {
         distanceBetweenBallAndPaddle = transform.position - paddleController.transform.position;
@@ -40,5 +44,14 @@ public class BallController : MonoBehaviour
     {
         ballRigidBody.velocity = ballVelocityOnLaunch;
         hasBallBeenLaunched = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (hasBallBeenLaunched == true)
+        {
+            ballAudioSource.PlayOneShot(ballCollisionSoundEffects.GetRandom());
+            //AudioSource.PlayClipAtPoint(, Camera.main.transform.position);
+        }
     }
 }
