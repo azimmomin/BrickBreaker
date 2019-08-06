@@ -51,7 +51,6 @@ public class BallController : MonoBehaviour
         if (hasBallBeenLaunched == true)
         {
             ballAudioSource.PlayOneShot(ballCollisionSoundEffects.GetRandom());
-            //AudioSource.PlayClipAtPoint(, Camera.main.transform.position);
         }
     }
 }
