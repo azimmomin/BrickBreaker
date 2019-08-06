@@ -1,26 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class Block : MonoBehaviour
 {
-    public delegate void BlockCreatedAction();
-    public delegate void BlockDestroyedAction();
-    public static event BlockCreatedAction OnBlockCreated;
-    public static event BlockCreatedAction OnBlockDestroyed;
+    public static event UnityAction OnBlockCreated;
+    public static event UnityAction<int> OnBlockDestroyed;
     [SerializeField] private AudioClip blockHitSoundEffect = null;
-
+    [SerializeField] private int pointValueOfBlock = 100;
     private void Start()
     {
         if (OnBlockCreated != null)
         {
             OnBlockCreated();
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (OnBlockDestroyed != null)
-        {
-            OnBlockDestroyed();
         }
     }
 
@@ -32,5 +23,9 @@ public class Block : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         Destroy(gameObject);
+        if (OnBlockDestroyed != null)
+        {
+            OnBlockDestroyed(pointValueOfBlock);
+        }
     }
 }
