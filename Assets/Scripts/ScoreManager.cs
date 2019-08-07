@@ -6,7 +6,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText = null;
     private void Awake()
     {
-        LevelManager.OnScoreUpdated += this.UpdateScore;
+        GameManager.OnScoreUpdated += this.UpdateScore;
     }
 
     private void UpdateScore(int newScore)
@@ -16,6 +16,6 @@ public class ScoreManager : MonoBehaviour
 
     void OnDestroy()
     {
-        LevelManager.OnScoreUpdated += this.UpdateScore;
+        GameManager.OnScoreUpdated += this.UpdateScore;
     }
 }

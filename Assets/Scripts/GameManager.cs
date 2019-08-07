@@ -2,12 +2,11 @@
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public static event UnityAction<int> OnScoreUpdated;
 
     [SerializeField] private SceneLoader sceneLoader = null;
-
     private uint totalNumberOfBlocksInLevel = 0;
     private int score = 0;
     private void Awake()
@@ -15,6 +14,9 @@ public class LevelManager : MonoBehaviour
         Block.OnBlockCreated += OnBlockCreated;
         Block.OnBlockDestroyed += OnBlockDestroyed;
         SceneManager.sceneLoaded += OnSceneLoaded;
+        GameOverDetector.OnGameOver += OnGameOver;
+
+        ResetGame();
     }
 
     private void OnBlockCreated()
@@ -46,9 +48,23 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private void OnGameOver()
+    {
+        sceneLoader.LoadGameOverScene();
+        Destroy(gameObject);
+    }
+
+    private void ResetGame()
+    {
+        totalNumberOfBlocksInLevel = 0;
+        score = 0;
+    }
+
     private void OnDestroy()
     {
         Block.OnBlockCreated -= OnBlockCreated;
         Block.OnBlockDestroyed -= OnBlockDestroyed;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        GameOverDetector.OnGameOver -= OnGameOver;
     }
 }

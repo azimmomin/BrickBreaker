@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class GameOverDetector : MonoBehaviour
 {
-    [SerializeField] private SceneLoader sceneLoader = null;
+    public static event UnityAction OnGameOver;
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        sceneLoader.LoadGameOverScene();
-        // TODO: Fire an event that the game is over.
-        // Listen for event in LevelManager so that we
-        // can reset the score.
+        if (OnGameOver != null)
+        {
+            OnGameOver();
+        }
     }
 }
