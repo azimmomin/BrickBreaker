@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4798989138362416116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2303192694370018637}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2303192694370018637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4798989138362416116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7390471037515185702}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7390471037515185696
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +44,7 @@ GameObject:
   - component: {fileID: 5813983504977224046}
   m_Layer: 0
   m_Name: Short Block
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +59,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 6.2770014, y: 7.012768, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2303192694370018637}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -119,4 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55793e719ee065b4d8c74b19e6c5d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockSpriteRenderer: {fileID: 7390471037515185697}
+  blockDamagedSprite: {fileID: 0}
+  blockHitParticleEffect: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c,
+    type: 3}
   blockHitSoundEffect: {fileID: 8300000, guid: c66eb77e48aa34143b6b0d0ecfeb5bfe, type: 3}
+  pointValueOfBlock: 100
+  hitsRequiredToBreakBlock: 1

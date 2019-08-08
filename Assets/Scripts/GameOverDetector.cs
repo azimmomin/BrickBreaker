@@ -7,9 +7,6 @@ public class GameOverDetector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (OnGameOver != null)
-        {
-            OnGameOver();
-        }
+        OnGameOver?.Invoke();
     }
 }

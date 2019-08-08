@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     private void Awake()
     {
-        Block.OnBlockCreated += OnBlockCreated;
-        Block.OnBlockDestroyed += OnBlockDestroyed;
+        Block.OnBreakableBlockCreated += OnBlockCreated;
+        Block.OnBreakableBlockDestroyed += OnBlockDestroyed;
         SceneManager.sceneLoaded += OnSceneLoaded;
         GameOverDetector.OnGameOver += OnGameOver;
 
@@ -27,10 +27,7 @@ public class GameManager : MonoBehaviour
     private void OnBlockDestroyed(int pointValueOfBlock)
     {
         score += pointValueOfBlock;
-        if (OnScoreUpdated != null)
-        {
-            OnScoreUpdated(score);
-        }
+        OnScoreUpdated?.Invoke(score);
 
         totalNumberOfBlocksInLevel -= 1;
         if (totalNumberOfBlocksInLevel == 0)
@@ -42,10 +39,7 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
         // Broadcast the score so that our UI can update on scene load.
-        if (OnScoreUpdated != null)
-        {
-            OnScoreUpdated(score);
-        }
+        OnScoreUpdated?.Invoke(score);
     }
 
     private void OnGameOver()
@@ -62,8 +56,8 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        Block.OnBlockCreated -= OnBlockCreated;
-        Block.OnBlockDestroyed -= OnBlockDestroyed;
+        Block.OnBreakableBlockCreated -= OnBlockCreated;
+        Block.OnBreakableBlockDestroyed -= OnBlockDestroyed;
         SceneManager.sceneLoaded -= OnSceneLoaded;
         GameOverDetector.OnGameOver -= OnGameOver;
     }

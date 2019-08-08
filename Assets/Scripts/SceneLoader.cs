@@ -16,7 +16,7 @@ public class SceneLoader : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         // If we are at the last game level scene, load the game over scene.
-        if (currentSceneIndex == SceneManager.sceneCount - 1)
+        if (currentSceneIndex == SceneManager.sceneCountInBuildSettings - 1)
         {
             LoadGameOverScene();
             return;

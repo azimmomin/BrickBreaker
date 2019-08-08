@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5482723399137142255}
   - component: {fileID: 6464241680551883075}
   m_Layer: 0
-  m_Name: Long Block
-  m_TagString: Breakable
+  m_Name: Unbreakable Long Block
+  m_TagString: Unbreakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cf661889a794745438c8cc44d5d40d10, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 19f5f625f418a2a4eba6b668257f46e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,10 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55793e719ee065b4d8c74b19e6c5d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockSpriteRenderer: {fileID: 5482723399137142253}
-  blockDamagedSprite: {fileID: 21300000, guid: ed936659eabc0f649b750c330334a274, type: 3}
   blockHitParticleEffect: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c,
     type: 3}
   blockHitSoundEffect: {fileID: 8300000, guid: c66eb77e48aa34143b6b0d0ecfeb5bfe, type: 3}
   pointValueOfBlock: 100
-  hitsRequiredToBreakBlock: 2
