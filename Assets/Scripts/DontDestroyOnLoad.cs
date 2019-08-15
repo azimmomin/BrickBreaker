@@ -22,6 +22,7 @@ public class DontDestroyOnLoad : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
         // If there is only one object of each type, set that object to not be destroyed.
         DontDestroyOnLoad(gameObject);
     }
