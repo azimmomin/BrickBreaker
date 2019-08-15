@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
         Block.OnBreakableBlockCreated += OnBlockCreated;
         Block.OnBreakableBlockDestroyed += OnBlockDestroyed;
         SceneManager.sceneLoaded += OnSceneLoaded;
+        BallController.OnBallLaunched += OnBallLaunched;
         GameOverDetector.OnGameOver += OnGameOver;
 
         ResetGame();
@@ -42,6 +43,11 @@ public class GameManager : MonoBehaviour
         OnScoreUpdated?.Invoke(score);
     }
 
+    private void OnBallLaunched()
+    {
+        Physics2D.autoSimulation = true;
+    }
+
     private void OnGameOver()
     {
         sceneLoader.LoadGameOverScene();
@@ -52,6 +58,7 @@ public class GameManager : MonoBehaviour
     {
         totalNumberOfBlocksInLevel = 0;
         score = 0;
+        Physics2D.autoSimulation = false;
     }
 
     private void OnDestroy()

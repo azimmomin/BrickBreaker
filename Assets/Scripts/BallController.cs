@@ -1,8 +1,10 @@
 ﻿using CustomExtensions;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BallController : MonoBehaviour
 {
+    public static UnityAction OnBallLaunched;
     [SerializeField] private AudioSource ballAudioSource = null;
     [SerializeField] private AudioClip[] ballCollisionSoundEffects = null;
     [SerializeField] private PaddleController paddleController = null;
@@ -35,7 +37,6 @@ public class BallController : MonoBehaviour
 
     private void LockBallToPaddle()
     {
-        // TODO: Disable physics simulator while you are moving the ball with the paddle.
         Vector2 currentPaddlePosition = new Vector2(paddleController.transform.position.x, paddleController.transform.position.y);
         transform.position = currentPaddlePosition + distanceBetweenBallAndPaddle;
     }
@@ -44,6 +45,10 @@ public class BallController : MonoBehaviour
     {
         ballRigidBody.velocity = ballVelocityOnLaunch;
         hasBallBeenLaunched = true;
+        if (OnBallLaunched != null)
+        {
+            OnBallLaunched();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -101,7 +101,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ad6457392a49c5348ae442b038520f1c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 212aa8d945d1a41e499805fd5aba9766, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockSpriteRenderer: {fileID: 7390471037515185697}
-  blockDamagedSprite: {fileID: 0}
+  blockDamagedSprite: {fileID: 21300000, guid: e6423700b960a4c6c88b3c4c3ebbb4a9, type: 3}
   blockHitParticleEffect: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c,
     type: 3}
   blockHitSoundEffect: {fileID: 8300000, guid: c66eb77e48aa34143b6b0d0ecfeb5bfe, type: 3}
